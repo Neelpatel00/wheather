@@ -2,6 +2,8 @@ const http = require("http");
 const fs = require("fs");
 var requests = require("requests");
 
+const port = process.env.PORT || 8000;
+
 var express = require("express");
 var bodyParser = require('body-parser');
 const { response } = require("express");
@@ -60,4 +62,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(8000,"127.0.0.1");
+server.listen(port, () => {
+    console.log('listening to the port no at ${port}');
+});
